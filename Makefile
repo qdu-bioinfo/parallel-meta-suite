@@ -1,17 +1,5 @@
 CC:=g++
-ifneq (,$(findstring Darwin,$(shell uname)))
-	exist = $(shell if [ -e '/usr/local/bin/g++-10' ]; then echo "exist"; else echo "notexist"; fi;)
-	ifeq ($(exist),exist)
-		CC:=g++-10
-	else
-        	exist = $(shell if [ -e '/usr/local/bin/g++-9' ]; then echo "exist"; else echo "notexist"; fi;)
-        	ifeq ($(exist),exist)
-                	CC:=g++-9
-		else
-			CC:=g++-8
-		endif
-	endif
-endif
+
 OMPFLG=-fopenmp
 HASHFLG=-Wno-deprecated
 BUILDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -msse
@@ -36,6 +24,9 @@ EXE_UTX=bin/PM-update-taxa
 EXE_INS=bin/PM-install
 
 tax:$(OBJ_TAX) src/frame.cpp
+	$(CC) -c src/ExtractRNA.cpp -o $(OBJ_EXT) $(HASHFLG)
+	$(CC) -o $(EXE_TAX) src/frame.cpp $(OBJ_MAP) $(OBJ_EXT) $(OMPFLG) $(HASHFLG)
+	$(CC) -o $(EXE_RNA) src/ExtractRNA_plus.cpp $(OBJ_EXT) $(HASHFLG)	
 	$(CC) -o $(EXE_CLT) src/class_tax.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CLF) src/class_func.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CFN) src/class_func_nsti.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
