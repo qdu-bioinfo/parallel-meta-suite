@@ -15,7 +15,7 @@ endif
 OMPFLG=-fopenmp
 HASHFLG=-Wno-deprecated
 BUILDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -msse
-OBJ_EXT=src/ExtractRNA.o
+OBJ_EXT=bin/ExtractRNA.o
 EXE_TAX=bin/PM-parallel-meta
 EXE_RNA=bin/PM-extract-rna
 EXE_CLT=bin/PM-plot-taxa
@@ -57,4 +57,4 @@ tax:$(OBJ_TAX) src/frame.cpp
 	$(CC) -o $(EXE_INS) src/env_install.cpp $(HASHFLG) $(BUILDFLG)
 
 clean:
-	rm -rf bin/* src/*.o
+	rm -rf bin/* bin/*.o
