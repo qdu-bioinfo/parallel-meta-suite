@@ -36,7 +36,7 @@ EXE_UTX=bin/PM-update-taxa
 EXE_INS=bin/PM-install
 
 tax:$(OBJ_TAX) src/frame.cpp
-	$(CC) -c -o $(OBJ_EXT) src/ExtractRNA.cpp $(HASHFLG)
+	$(CC) -c src/ExtractRNA.cpp -o $(OBJ_EXT) $(HASHFLG)
 	$(CC) -o $(EXE_TAX) src/frame.cpp $(OBJ_MAP) $(OBJ_EXT) $(OMPFLG) $(HASHFLG)
 	$(CC) -o $(EXE_RNA) src/ExtractRNA_plus.cpp $(OBJ_EXT) $(HASHFLG)	
 	$(CC) -o $(EXE_CLT) src/class_tax.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
