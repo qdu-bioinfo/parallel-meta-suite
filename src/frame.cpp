@@ -36,7 +36,7 @@ void Single_Run(_Para para){
 	
 	if(para.Is_format_check){//Check format
         cout << "Format Check Starts" << endl;
-        command = para.This_path + "/bin/PM-format-seq -i " + para.Infilename;
+        command = "PM-format-seq -i " + para.Infilename;
         system(command.c_str());
         cout << endl;
     }
@@ -48,7 +48,7 @@ void Single_Run(_Para para){
                         
         if (para.Is_format_check){//Check format
             cout << "Format Check 2 Starts" << endl;
-            command = para.This_path + "/bin/PM-format-seq -i " + para.Infilename2;
+            command = "PM-format-seq -i " + para.Infilename2;
             system(command.c_str());
             cout << endl;
         }
@@ -96,7 +96,7 @@ void Single_Run(_Para para){
     Out_Taxonomy((para.Out_path + "/tmp/map_output.txt").c_str(), para.Out_path, para.Database, 0, a_diver, para.Is_paired, match_rna_count, drop_rna_count);
           
     //make_plot
-    command = para.This_path + "/bin/PM-plot-taxa -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt -o " + para.Out_path;
+    command = "/PM-plot-taxa -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt -o " + para.Out_path;
     system(command.c_str());
     
     //print report
@@ -105,10 +105,10 @@ void Single_Run(_Para para){
     //func_anno
     if (para.Is_func){
        //func
-       command = para.This_path + "/bin/PM-predict-func -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt -o " + para.Out_path;
+       command = "PM-predict-func -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt -o " + para.Out_path;
        system(command.c_str());       
        //nsti
-       command = para.This_path + "/bin/PM-predict-func-nsti -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt >> " + para.Out_path + "/Analysis_Report.txt";
+       command = "PM-predict-func-nsti -D " + para.Database.Get_Id() + " -i " + para.Out_path + "/classification.txt >> " + para.Out_path + "/Analysis_Report.txt";
        system(command.c_str());   
        }
     //Remove the tmp 

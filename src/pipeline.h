@@ -333,7 +333,7 @@ int Parse_FLevel(string levels){
 
 int Parse_Para(int argc, char * argv[]){
 
-    Bin_path = Check_Env() + "/bin/";
+    Bin_path = "";
     R_path = Check_Env() + "/Rscript";
     
     Ref_db = 'G';
