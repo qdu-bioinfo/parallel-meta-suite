@@ -297,7 +297,7 @@ int main(int argc, char *argv[])
                     Run_With_Error(command, "PM-select-func", Error_file.c_str());
                     outscript << command << endl;
                     //plot
-                    sprintf(command, "Rscript %sPM_Distribution.R -m %s -i %s/func.%s.Abd -o %s -p func.%s.Abd", R_path.c_str(), Meta_file.c_str(), Abd_dir.c_str(), FLevel[i].c_str(), Abd_dir.c_str(), FLevel[i].c_str());
+                    sprintf(command, "Rscript %s/PM_Distribution.R -m %s -i %s/func.%s.Abd -o %s -p func.%s.Abd", R_path.c_str(), Meta_file.c_str(), Abd_dir.c_str(), FLevel[i].c_str(), Abd_dir.c_str(), FLevel[i].c_str());
                     command_parallel_scripts.push_back(command);
                     command_parallel_titles.push_back("PM_Distribution.R");
                     outscript << command << endl;
