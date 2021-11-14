@@ -168,7 +168,7 @@ void Check_Rscript()
         system("rm -rf $ParallelMETA/Rscript.tar.gz");
         system("wget -P $ParallelMETA/ http://bioinfo.single-cell.cn/Released_Software/parallel-meta/conda/Rscript.tar.gz");
         system("tar -xzvf $ParallelMETA/Rscript.tar.gz -C $ParallelMETA/");
-        system("Rscript $ParallelMETA/Rscript/config.R");
+        // system("Rscript $ParallelMETA/Rscript/config.R");
     }
 }
 
