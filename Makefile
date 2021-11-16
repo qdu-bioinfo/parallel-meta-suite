@@ -1,9 +1,21 @@
 CC:=g++
-
+ifneq (,$(findstring Darwin,$(shell uname)))
+	exist = $(shell if [ -e '/usr/local/bin/g++-10' ]; then echo "exist"; else echo "notexist"; fi;)
+	ifeq ($(exist),exist)
+		CC:=g++-10
+	else
+        	exist = $(shell if [ -e '/usr/local/bin/g++-9' ]; then echo "exist"; else echo "notexist"; fi;)
+        	ifeq ($(exist),exist)
+                	CC:=g++-9
+		else
+			CC:=g++-8
+		endif
+	endif
+endif
 OMPFLG=-fopenmp
 HASHFLG=-Wno-deprecated
 BUILDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -msse
-OBJ_EXT=bin/ExtractRNA.o
+OBJ_EXT=src/ExtractRNA.o
 EXE_TAX=bin/PM-parallel-meta
 EXE_RNA=bin/PM-extract-rna
 EXE_CLT=bin/PM-plot-taxa
@@ -21,10 +33,9 @@ EXE_FSQ=bin/PM-format-seq
 EXE_RCV=bin/PM-rare-curv
 EXE_RAR=bin/PM-rand-rare
 EXE_UTX=bin/PM-update-taxa
-EXE_INS=bin/PM-install
 
 tax:$(OBJ_TAX) src/frame.cpp
-	$(CC) -c src/ExtractRNA.cpp -o $(OBJ_EXT) $(HASHFLG)
+	$(CC) -c -o $(OBJ_EXT) src/ExtractRNA.cpp $(HASHFLG)
 	$(CC) -o $(EXE_TAX) src/frame.cpp $(OBJ_MAP) $(OBJ_EXT) $(OMPFLG) $(HASHFLG)
 	$(CC) -o $(EXE_RNA) src/ExtractRNA_plus.cpp $(OBJ_EXT) $(HASHFLG)	
 	$(CC) -o $(EXE_CLT) src/class_tax.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
@@ -42,7 +53,6 @@ tax:$(OBJ_TAX) src/frame.cpp
 	$(CC) -o $(EXE_RCV) src/rare_curv.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_RAR) src/rand_rare.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_UTX) src/update_taxa.cpp $(HASHFLG) $(BUILDFLG)
-	$(CC) -o $(EXE_INS) src/env_install.cpp $(HASHFLG) $(BUILDFLG)
 
 clean:
-	rm -rf bin/* bin/*.o
+	rm -rf bin/PM-* src/*.o

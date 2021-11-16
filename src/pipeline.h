@@ -623,9 +623,9 @@ void Copy_Index(const char * path){
      system(command.c_str());
      //cp resources of html
      string command2;
-     command2 = "cp -r ";
+     command2 = "cp -rf ";
      command2 += Check_Env();
-     command2 += "/html/PageResources/ ";
+     command2 += "/html/PageResources ";
      command2 += path;
 
      system(command2.c_str());

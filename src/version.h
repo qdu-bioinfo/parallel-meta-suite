@@ -6,6 +6,6 @@
 #ifndef _VERSION_H
 #define _VERSION_H
 
-#define Version "3.7Alpha"
+#define Version "3.7"
 
 #endif
