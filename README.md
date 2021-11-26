@@ -13,7 +13,6 @@
 - [Results interpretation](#results-interpretation)
 - [Contact Us](#contact)
 - [Supplementary](#supplementary)
-- [Citations](#citations)
 
 # Introduction
 
@@ -304,14 +303,14 @@ Any problem please contact Parallel-Meta Suite development team
 	Li Jian		E-mail: rendcloud@163.com
 	
 # Supplementary
-[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]
+[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]  (1GB) 
 
-[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 2556 microbiomes sampled from multiple environmental conditions and studies. [2-9]
+[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 2,556 microbiomes sampled from multiple environmental conditions and studies. [2-9] (5GB)
 
-[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14000 microbiome samples from American Gut Project. [10]
+[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14,000 microbiome samples from American Gut Project. [10] (9GB)
 
 
-# Citations
+### Data Source
 1. Lax, S., et al., Bacterial colonization and succession in a newly opened hospital. Sci Transl Med, 2017. 9(391).
 2. Wu, G.D., et al., Linking Long-Term Dietary Patterns with Gut Microbial Enterotypes. Science, 2011. 334(6052).
 3. A, D.L., et al., Host lifestyle affects human microbiota on daily timescales. Genome biology, 2014. 15(7).
