@@ -303,11 +303,11 @@ Any problem please contact Parallel-Meta Suite development team
 	Li Jian		E-mail: rendcloud@163.com
 	
 # Supplementary
-[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]  (1GB) 
+[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]  (size ≈ 1GB) 
 
-[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 2,556 microbiomes sampled from multiple environmental conditions and studies. [2-9] (5GB)
+[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 2,556 microbiomes sampled from multiple environmental conditions and studies. [2-9] (size ≈ 5GB)
 
-[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14,000 microbiome samples from American Gut Project. [10] (9GB)
+[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14,000 microbiome samples from American Gut Project. [10] (size ≈ 9GB)
 
 
 ### Data Source
