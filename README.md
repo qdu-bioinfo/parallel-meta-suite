@@ -152,7 +152,7 @@ Tips:
 
 Usually, servers need remote login (e.g. via SSH) and only provide command-based terminal.  in the local computer to generate the command.
 
-a. Download GUI configuration guild folder ($ParallelMETA/PMS-Config/) from the remote server, and open **"index.html"** in the folder by a web browser
+a. Download GUI configuration guide folder ($ParallelMETA/PMS-Config/) from the remote server, and open **"index.html"** in the folder by a web browser
 
 b. Generate the command in the local computer as well as [local GUI Configuration](#local-gui-configuration)
 
