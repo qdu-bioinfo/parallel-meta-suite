@@ -289,7 +289,7 @@ This directory contains the profiling results path list of all samples. Each lis
 
 ### Logs (plain-text file)
 
-a. Analysis_Report.txt: The analysis report including parameters configuration and analysis information statistics.
+a. Analysis_Report.txt: The analysis report includes parameters configuration and analysis information statistics.
 
 b. scripts.sh: The detailed scripts of each analysis step.
 
