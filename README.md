@@ -59,7 +59,7 @@ PMS provides a fully automatic installer for easy installation.
 
 a. Extract the package:
 
-	tar –xzvf parallel-meta-suite.tar.gz
+	tar -xzvf parallel-meta-suite.tar.gz
 
 b. Install
 	
