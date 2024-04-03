@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Haobo Shi
+// version 3.7 - 3.7.2 
+// Update profiler,remove pair-end mode
+
 // Updated at July 29, 2021
 // Updated by Yuzhu Chen
 // Code by Yuzhu Chen
@@ -42,6 +47,7 @@ void Single_Run(_Para para){
     }
 	
 	//check format for pair ends, infilename2
+    /* //delete
     if (para.Is_paired){
         para.Format = Check_Format(para.Infilename2.c_str()); 
         if (para.Format < 0) return;//Format error
@@ -53,7 +59,7 @@ void Single_Run(_Para para){
             cout << endl;
         }
     }  
-	
+	*/
 	//Type, 0:16S  1:shotgun
 	//Format, 0:fasta  1:fastq
 	
@@ -67,8 +73,10 @@ void Single_Run(_Para para){
 		//Extract 16S r RNA
         seq_count = ExtractRNA(para.Database.Get_Domain(), para.Infilename, para.Out_path, para.Length_filter, para.This_path, para.Core_number);
 		//search database
-		rna_count = Search_db(para.Align_exe_name.c_str(),  para.Out_path + "/meta.rna", para.Out_path + "/tmp", para.Database.Get_Path() + "/database.fa", para.db_similarity,'T', para.Core_number);
-	}else if(para.Is_paired){//if paired
+		rna_count = Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/taxonomy_annotation.txt" , para.Database.Get_Path()+ "/database.fa" , para.db_similarity,'F', para.Core_number, para.profiler);
+	}
+    /* //delete by Shi Haobo 
+    else if(para.Is_paired){//if paired
 		if(para.Format == 0){//fasta cant merge in vsearch
 			cerr << "Error: For pair ends you need to input fastq format file" << endl; 
     	 	return ;
@@ -78,20 +86,24 @@ void Single_Run(_Para para){
 			//dereplication, denoise, nonchimeras
 			handlefile = Handle_seq(para.Align_exe_name.c_str(), mergefile , para.Out_path + "/tmp", para.Is_denoised, para.Is_nonchimeras, rna_count, asv_count,0, para.Core_number);
 			//search database
-			Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/database.fa", para.db_similarity,'F', para.Core_number);
+			Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/taxonomy_annotation.txt" , para.Database.Get_Path()+ "/database.fa" , para.db_similarity,'F', para.Core_number, para.profiler);
 			if (rna_count < 0) {                       
                        cerr << "Error: 2 ends contain different number of sequences" << endl;
                        return;
             }
 		}	
 		
-	}else{//single
+	}
+    */
+    else{//single
 		//dereplication, denoise, nonchimeras
 		handlefile = Handle_seq(para.Align_exe_name.c_str(), para.Infilename, para.Out_path + "/tmp", para.Is_denoised, para.Is_nonchimeras, rna_count, asv_count, para.Format, para.Core_number);	
 		
 		//search database
-		Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/database.fa", para.db_similarity,'F', para.Core_number);
+		Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/taxonomy_annotation.txt" , para.Database.Get_Path()+ "/database.fa" , para.db_similarity,'F', para.Core_number, para.profiler);
 	}
+    if(para.profiler == 1)
+        Otutab_Count(para.Out_path + "/tmp/PM.hwl.txt",para.Out_path + "/tmp/map_output.txt");
 	//parse_taxonomy 
     Out_Taxonomy((para.Out_path + "/tmp/map_output.txt").c_str(), para.Out_path, para.Database, 0, a_diver, para.Is_paired, match_rna_count, drop_rna_count);
           

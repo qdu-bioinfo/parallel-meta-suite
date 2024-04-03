@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Haobo Shi
+// version 3.7 - 3.7.2 
+// Update profiler,remove pair-end mode
+
 // Updated at July 29, 2021
 // Updated by Yuzhu Chen
 // Code by Yuzhu Chen
@@ -116,7 +121,7 @@ string Handle_seq(string programname, string infilename, string outpath, char Is
 	string handlefile = thi_path;
 	return handlefile; 
 }
-int Search_db(string programname, string infilename, string outpath, string database_path, double db_similarity, char Shotgun, int coren){
+int Search_db(string programname, string infilename, string outpath, string taxonomy_path, string database_path, double db_similarity, char Shotgun, int coren , int profiler){
         
     int seq_n = Get_Count(infilename.c_str()); 
 	
@@ -137,11 +142,45 @@ int Search_db(string programname, string infilename, string outpath, string data
 	}
 
     //global search db, output format is sam 
-    sprintf(command,"%s --id %.2f --db %s --usearch_global %s --otutabout %s/map_output.txt --threads %d",programname.c_str(), db_similarity, database_path.c_str(),infilename.c_str(),outpath.c_str(),coren); 
-    system(command);
+	if(profiler == 1)
+    	sprintf(command,"PM-profiler -s %.2f -d %s -m %s -i %s -o %s/PM -t %d",db_similarity, database_path.c_str(), taxonomy_path.c_str(),infilename.c_str(),outpath.c_str(),coren); 
+    else
+		sprintf(command,"%s --id %.2f --db %s --usearch_global %s --otutabout %s/map_output.txt --threads %d",programname.c_str(), db_similarity, database_path.c_str(),infilename.c_str(),outpath.c_str(),coren); 
+	system(command);
     //cout<< command << endl;
     
     cout << "Profiling finished" << endl ;          
     return seq_n;
     }
+
+int Otutab_Count(string infilename, string outfilename){
+	ifstream infile(infilename.c_str(), ifstream::in);
+	ofstream outfile(outfilename.c_str(), ofstream::out);
+	outfile << "#OTU ID\tsequence" <<endl;
+	map<string,int> otu_list;
+	string tmp_str;
+	while(getline(infile,tmp_str)){
+		stringstream buffer(tmp_str);
+		string seq_name,otu_name;
+		int seq_count = 0;
+		buffer >> seq_name;
+		for(int i = 0;i<seq_name.size();i++){
+			if(seq_name[i] == '='){
+				string tmp = seq_name.substr(i+1);
+				istringstream iss(tmp);
+				iss >> seq_count;
+			}
+		}
+		buffer >> otu_name;
+		if(otu_name != "unmapped")	otu_list[otu_name] += seq_count;
+	}
+	for(map<string,int>::iterator miter = otu_list.begin();miter != otu_list.end();miter++){
+		outfile << miter->first << '\t' << miter->second << endl;
+	}
+	infile.close();
+	infile.clear();
+	outfile.close();
+	outfile.clear();
+	return 1;
+}
 #endif

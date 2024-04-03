@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Guosen Hou
+// version 3.7 - 3.7.2 
+// Change REG_SIZE to 120, To fit the Greengenes2 database of phylogenetic trees with more nodes
+
 // Updated at Dec 23, 2019
 // Updated by Xiaoquan Su
 // Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
@@ -23,7 +28,7 @@
 #ifndef COMP_H
 #define COMP_H
 
-#define REG_SIZE 70
+#define REG_SIZE 120//updated by Guosen Hou
 
 #define MIN_DIST 0.00001
 

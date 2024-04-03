@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Haobo Shi
+// version 3.7 - 3.7.2 
+// Update profiler,remove pair-end mode
+
 // Updated at July 31, 2021
 // Updated by Yuzhu Chen
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
@@ -75,6 +80,7 @@ _PMDB Database;
 
 string Out_path;
 char Seq_type = 'r';
+int profiler = 0;//default is vsearch
 
 int Length_t = 0;
 int Cluster = 2;
@@ -87,7 +93,7 @@ bool Is_taxa = true;
 bool Is_func = true;
 bool Is_rare = false;
 bool Is_rare_curve = false;
-bool Is_paired_seq = false;
+//bool Is_paired_seq = false;  //pair end flag
 
 //newadd
 char Is_denoised='T';
@@ -131,7 +137,7 @@ int printhelp(){
     
     cout << "\t[Input options, required]" << endl;
     
-    cout << "\t  -i Sequence files list, pair-ended sequences are supported [Conflicts with -l]" << endl;
+    cout << "\t  -i Sequence files list, only single-end sequences are supported [Conflicts with -l]" << endl;
     cout << "\t  -p List file path prefix [Optional for -i]" << endl;
     cout << "\tor" << endl;
     cout << "\t  -l Taxonomic analysis results list [Conflicts with -i]" << endl;
@@ -146,6 +152,7 @@ int printhelp(){
     
     cout << "\t[Profiling parameters]" << endl;
     cout << "\t  -M (upper) Sequence type, T (Shotgun) or F (rRNA), default is F" << endl;
+    cout << "\t  -P (upper) Profiler selection. V (upper) or v for Vsearch, P (upper) or p for PM-profiler, default is Vsearch"  << endl;//PM-profiler
     cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
     cout << "\t  -a rRNA length threshold of rRNA extraction. 0 is disabled, default is 0 [optional for -M T]" << endl;
     cout << "\t  -k Sequence format check, T(rue) or F(alse), default is F" << endl;
@@ -198,10 +205,12 @@ void Print_Report(const char * outfilename){
               outfile << "Sequence type: ";
               if (Seq_type == 'm') outfile << "Metagenomic shotgun sequences" << endl;
               else outfile << "Targeted sequences" << endl; 
-              
+              /*   
+              //delete by Shi Haobo
               outfile << "Pair-end sequences: ";
               if (Is_paired_seq) outfile << "Yes" << endl;
-              else outfile << "No" << endl;                                                        
+              else outfile << "No" << endl;      
+              */                                                  
     }
     else {
         switch (Mode){
@@ -236,6 +245,9 @@ void Print_Report(const char * outfilename){
      	if (Is_nonchimeras == 'T') outfile << "Yes" <<endl;
      	else outfile << " No" << endl;
 	 }
+
+     outfile << "Profiler: ";
+     outfile << (profiler == 0 ? "Vsearch" : "PM-profiler") <<endl;
        
      outfile << "Sequence alignment threshold: ";
      outfile <<  db_similarity <<endl;   
@@ -346,6 +358,7 @@ int Parse_Para(int argc, char * argv[]){
     Coren = 0;
     Out_path = "default_out/";
     
+    
     //init TLevel & FLevel
     TLevel_Set[0] = true; //phylum
     TLevel_Set[4] = true; //genus
@@ -377,7 +390,11 @@ int Parse_Para(int argc, char * argv[]){
                                       Mode = 0;
                                       break;
                             //case 'g': Group_file = argv[i+1]; break;
-                            //case 'a': Id_file = argv[i+1]; break;        
+                            //case 'a': Id_file = argv[i+1]; break;       
+                            case 'P': if(argv[i+1][0] == 'P' || argv[i+1][0] == 'p') profiler = 1;
+                                        else if(argv[i+1][0] == 'V' || argv[i+1][0] == 'v') profiler = 0;
+                                        else cerr << "Error: Profiler only input P or V" <<endl;
+                                        break;
                             case 'l': Taxa_list_file = argv[i+1]; 
                                       if (Step == 0) {
                                                      cerr << "Error: -l conflicts with -i" << endl;

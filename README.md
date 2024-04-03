@@ -1,7 +1,7 @@
 # Parallel-Meta Suite Users’ Manual
 
-![Version](https://img.shields.io/badge/Version-3.7-brightgreen)
-![Release date](https://img.shields.io/badge/Release%20date-Nov.%2016%2C%202021-brightgreen)
+![Version](https://img.shields.io/badge/Version-3.7.2-brightgreen)
+![Release date](https://img.shields.io/badge/Release%20date-Apr.%203%2C%202024-brightgreen)
 
 ## Contents
 - [Introduction](#introduction)
@@ -48,9 +48,9 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 The latest released package:  
 
-For Linux/Win10 WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/parallel-meta-suite-3.7-src.tar.gz).     
+For Linux/Win10 WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src.tar.gz).     
 
-For MAC, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/parallel-meta-suite-3.7-src-mac.tar.gz). 
+For MAC, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src-mac.tar.gz). 
 
 
 ## Automatic installation (recommended)
@@ -185,7 +185,7 @@ or use the [GUI-based configuration](#gui-based-configuration-and-run-in-a-local
 
 Then you can check the results by the [visualized viewer index.html](#local-gui-view) in the output folder by a webpage browser. 
 
-We also provide a demo output for this example dataset. Click [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/example.out.3.7.tar.gz) to download and check for details.
+We also provide a demo output for this example dataset. Click [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/data/example.out.3.7.2.tar.gz) to download and check for details.
 
 # Tools in toolkit
 Tools can be directly used as Linux command line with parameters. To see all available parameters, please run the command with parameter ‘-h’, e.g.
@@ -299,8 +299,7 @@ c. error.log: The warning and error messages.
 
 Any problem please contact Parallel-Meta Suite development team
 
-	Chen Yuzhu	E-mail: chenyuzhu_study@163.com
-	Li Jian		E-mail: rendcloud@163.com
+	Su Xiaoquan	E-mail: suxq@qdu.edu.cn
 	
 # Supplementary
 [Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]  (size ≈ 1GB) 

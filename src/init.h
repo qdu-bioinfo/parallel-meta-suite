@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Haobo Shi
+// version 3.7 - 3.7.2 
+// Update profiler,remove pair-end mode
+
 // Updated at July 31, 2021
 // Updated by Yuzhu Chen
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
@@ -32,6 +37,7 @@ class _Para{
                      Core_number = 0;
                      Type = -1;
                      Out_path = "./Result";
+                     profiler = 0;//Default profiler is vsearch
                  
              
                      Is_format_check = false;  
@@ -57,6 +63,7 @@ class _Para{
              int Format; //0: fasta 1: fastq;
              int Length_filter;
              int Core_number;
+             int profiler;//Profiler select
              bool Is_format_check;
              bool Is_paired;
              bool Is_func;
@@ -82,7 +89,7 @@ int Print_Help(){
     cout << "\t  -m Input single sequence file (Shotgun) [Conflicts with -r and -R]" << endl;
     cout << "\t  or" << endl;
 	cout << "\t  -r Input single sequence file (rRNA targeted) [Conflicts with -m]" << endl;
-	cout << "\t  -R (upper) Input paired sequence file [Optional for -r, Conflicts with -m]" << endl;
+	//cout << "\t  -R (upper) Input paired sequence file [Optional for -r, Conflicts with -m]" << endl;
     
     //newadd
     cout << "\t  -v ASV denoising, T(rue) or F(alse), default is T [optional for -i]" << endl;
@@ -95,8 +102,9 @@ int Print_Help(){
     
     cout << "\t[Other options]" << endl;
     cout << "\t  -k Sequence format check, T(rue) or F(alse), default is F" << endl;
+    cout << "\t  -P (upper) Profiler selection. V (upper) or v for Vsearch, P (upper) or p for PM-profiler, default is Vsearch"  << endl;
 	cout << "\t  -L (upper) rRNA length threshold of rRNA extraction. 0 is disabled, default is 0 [Optional for -m, Conflicts with -r]" << endl;
-    cout << "\t  -f Functional analysis, T(rue) or F(alse), default is T" << endl;
+    cout << "\t  -f Functional analysis T(rue) or F(alse), default is T" << endl;
     cout << "\t  -t Number of thread, default is auto" << endl;
     cout << "\t  -h Help" << endl;
     
@@ -114,9 +122,10 @@ int Print_Config(_Para para){
     else cout << "rRNA targeted sequences" << endl;
     
     cout << "Input sequence is " << para.Infilename << endl;
+    /* delete by Shi Haobo
     if (para.Is_paired)
        cout << "Input pair sequence is " << para.Infilename2 << endl;
-        
+    */
     cout << "Functional prediction is ";
     if (para.Is_func) cout << "On" << endl;
     else cout << "Off" << endl;
@@ -131,7 +140,10 @@ int Print_Config(_Para para){
     	if (para.Is_nonchimeras == 'T') cout << "On" << endl;
     	else cout << "Off" << endl;
 	}   
-    
+
+    cout << "Profiler: ";
+    cout << (para.profiler == 0 ? "Vsearch" : "PM-profiler") <<endl;
+
     cout << "Sequence alignment threshold is ";
     cout <<  para.db_similarity << endl;
     
@@ -164,11 +176,11 @@ int Print_Report(_Para para, unsigned int seq_count, unsigned int rna_count, uns
     else outfile << "rRNA targeted sequences" << endl; 
     
     outfile << "Input file : " << para.Infilename << endl;
-    
+    /* // delete by Shi Haobo
     if (para.Is_paired){
        outfile << "Input paired file : " << para.Infilename2 << endl;
        }
-       
+    */
     if (para.Type == 1){
        outfile << "rRNA extraction length filter : ";
        if (para.Length_filter == 0) outfile << "Off" << endl;
@@ -184,7 +196,10 @@ int Print_Report(_Para para, unsigned int seq_count, unsigned int rna_count, uns
     	if (para.Is_nonchimeras == 'T') outfile << " Yes" <<endl;
     	else outfile << " No" << endl;
 	}
- 
+
+    outfile << "Profiler: ";
+    outfile << (para.profiler == 0 ? "Vsearch" : "PM-profiler") <<endl;
+
     outfile << "Sequence alignment threshold: ";
     outfile <<  para.db_similarity <<endl;
 	         
@@ -234,7 +249,10 @@ int Parse_Para(int argc, char * argv[], _Para &para){ //Parse Parameters
                                        para.Is_nonchimeras = 'F';
                                        para.db_similarity =0.97;                                                                                                       
                                        break;  
-                            
+                            case 'P': if(argv[i+1][0] == 'P' || argv[i+1][0] == 'p') para.profiler = 1;//Profiler select,edit by Shi Haobo
+                                        else if(argv[i+1][0] == 'V' || argv[i+1][0] == 'v') para.profiler = 0;
+                                        else cerr << "Error: profiler only input P or V" <<endl;
+                                        break;
                             case 'r' : if (para.Type != -1){
                                                      cerr << "Error: -r conflicts with -m" << endl;
                                                      exit(0);
@@ -243,10 +261,11 @@ int Parse_Para(int argc, char * argv[], _Para &para){ //Parse Parameters
                                        para.Type = 0;
                                        break;  
                             
+                            /*//delete by Shi Haobo 
                             case 'R' : para.Infilename2 = argv[i+1];                                        
                                        para.Is_paired = true;
                                        break;
-                            
+                            */
                             case 'o' : para.Out_path = argv[i+1]; break; //Default is ./result                      
 
                             case 'k' : if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T' )) para.Is_format_check = true; 
@@ -298,6 +317,7 @@ int Parse_Para(int argc, char * argv[], _Para &para){ //Parse Parameters
     		exit(0);
 	}
     //check pair
+    /* //delete by Shi Haobo 
     if (para.Is_paired){
                         if (para.Type != 0){
                                       cerr << "Error: Pair-end sequences only support 16S rRNA" << endl;
@@ -308,7 +328,7 @@ int Parse_Para(int argc, char * argv[], _Para &para){ //Parse Parameters
 							exit(0);
 						}                    
                         }
-                
+    */
     Check_Path(para.Out_path.c_str(), 0); //Check output path 
     Check_Path((para.Out_path + "/tmp").c_str(), 0);    
     

@@ -1,3 +1,8 @@
+// Updated at April 2, 2024
+// Updated by Haobo Shi
+// version 3.7 - 3.7.2 
+// Update profiler,remove pair-end mode
+
 // Updated at July 28, 2021
 // Updated by Yuzhu Chen and Xiaoquan Su
 // Code by Yuzhu Chen, Xiaoquan Su
@@ -76,7 +81,8 @@ int main(int argc, char *argv[])
         };
 
         //is_pair_end
-        if (Seq_files.size() == Ids.size() * 2)
+        //delete this part by Shi Haobo
+        /*if (Seq_files.size() == Ids.size() * 2)
         {
             Is_paired_seq = true;
             if (Seq_type != 'r')
@@ -95,7 +101,9 @@ int main(int argc, char *argv[])
                 }
             }
         }
-        else if (Seq_files.size() != Ids.size())
+        else 
+        */
+        if (Seq_files.size() != Ids.size())
         {
             string error_info = "Error: Sequence files (pairs) and meta data should have the same sample number and order";
             cerr << error_info << endl;
@@ -137,10 +145,21 @@ int main(int argc, char *argv[])
 
             cout << endl
                  << "Processing sample " << i + 1 << " of " << Ids.size() << endl;
-            if (Is_paired_seq) //pair -end
-                sprintf(command, "PM-parallel-meta -r %s -R %s -o %s -t %d -f F -k %c -D %c -v %c -c %c -d %.2f", Seq_files[i * 2].c_str(), Seq_files[i * 2 + 1].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+            /* delete pair end part by Shi Haobo 
+            if (Is_paired_seq){ //pair -end 
+                if(profiler)
+                    sprintf(command, "PM-parallel-meta -r %s -R %s -o %s -t %d -f F -k %c -D %c -v %c -c %c -d %.2f -P P", Seq_files[i * 2].c_str(), Seq_files[i * 2 + 1].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+                else 
+                    sprintf(command, "PM-parallel-meta -r %s -R %s -o %s -t %d -f F -k %c -D %c -v %c -c %c -d %.2f -P V", Seq_files[i * 2].c_str(), Seq_files[i * 2 + 1].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+            }            
             else
-                sprintf(command, "PM-parallel-meta -%c %s -o %s -t %d -f F -L %d -k %c -D %c -v %c -c %c -d %.2f", Seq_type, Seq_files[i].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Length_t, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+            {
+            */
+                if(profiler)
+                    sprintf(command, "PM-parallel-meta -%c %s -o %s -t %d -f F -L %d -k %c -D %c -v %c -c %c -d %.2f -P P", Seq_type, Seq_files[i].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Length_t, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+                else 
+                    sprintf(command, "PM-parallel-meta -%c %s -o %s -t %d -f F -L %d -k %c -D %c -v %c -c %c -d %.2f -P V", Seq_type, Seq_files[i].c_str(), (Singlesample_dir + "/" + Ids[i]).c_str(), Coren, Length_t, Is_format_check, Ref_db, Is_denoised, Is_nonchimeras, db_similarity);
+            //}            
             Run_With_Error(command, "PM-parallel-meta", tmpError_file.c_str());
 
             //system(command);
