@@ -48,8 +48,8 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 The latest released package:  
 
-<a href="http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src.tar.gz" target="_blank“>here</a>
-
+<a href="http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src.tar.gz" target="_blank">here</a>
+	
 For Linux/Win10 WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src.tar.gz).     
 
 For MAC, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src-mac.tar.gz). 
