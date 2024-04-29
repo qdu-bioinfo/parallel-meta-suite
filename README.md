@@ -46,7 +46,9 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 # Installation guide
 
-The latest released package:  
+Due to size limitations of GitHub repositories, this repository does not include the database. Please use the following link to download PMS instead of directly cloning the repository.
+
+The latest released package(version 3.7.2):  
 
 For Linux/Win10 WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.2/parallel-meta-suite-3.7.2-src.tar.gz).     
 
