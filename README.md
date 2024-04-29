@@ -46,7 +46,7 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 # Installation guide
 
-Due to size limitations of GitHub repositories, this repository does not include the database. Please use the following link to download PMS instead of directly cloning the repository.
+Due to size limitations of GitHub repositories, this repository does not include the reference database. Please use the following link to download PMS instead of directly cloning the repository.
 
 The latest released package(version 3.7.2):  
 
