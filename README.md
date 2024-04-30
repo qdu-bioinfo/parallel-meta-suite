@@ -1,4 +1,4 @@
-# Parallel-Meta Suite Users’ Manual
+# Parallel-Meta suite users’ manual
 
 ![Version](https://img.shields.io/badge/Version-3.7.2-brightgreen)
 ![Release date](https://img.shields.io/badge/Release%20date-Apr.%203%2C%202024-brightgreen)
@@ -21,14 +21,14 @@ easy-to-use graphical interface for configuration and results interpretation, wh
 
 We strongly recommend that read this manually carefully before use Parallel-Meta Suite.
 
-# System Requirement and Dependency
-## Hardware Requirements
+# System requirement and dependency
+## Hardware requirements
 PMS only requires a standard computer with sufficient RAM to support the operations defined by a user. For typical users, this would be a computer with about 2 GB of RAM. For optimal performance, we recommend a computer with the following specs:
 	
 	RAM: 8+ GB
 	CPU: 4+ cores, 3.3+ GHz/core
     
-## Software Requirements
+## Software requirements
 
 ### OpenMP
 
@@ -69,7 +69,7 @@ b. Install
 	source install.sh
 
 
-##### Tips for the Automatic installation
+##### Tips for the automatic installation
 
 1. Please **“cd parallel-meta-suite”** before run the automatic installer.
 2. The automatic installer only configures the environment variables to the default configuration files of “\~/.bashrc” or “\~/.bash_profile”. If you want to configure the environment variables to other configuration file please use the manual installation.
@@ -103,7 +103,7 @@ e. Compile the source code:
 	make
 
 
-# Typical Usages
+# Typical usages
 PMS provides a pipeline to automatically process the whole workflow.
 
 <div align=center>
@@ -117,7 +117,7 @@ PMS provides a pipeline to automatically process the whole workflow.
 
 ## GUI-based configuration and run in a local computer (Fig. 1 A)
 
-#### Local GUI Configuration
+#### Local GUI configuration
 
 Local GUI-based usage is applicable with operating systems of Linux (GUI desktop installed), MAC OS, or Windows 10 (Subsystem for Linux (WSL) installed)
 
@@ -134,11 +134,11 @@ c. Click the **“Generate”** button at the bottom of the page to get a comman
 
 d. Click the **“Copy”** button to copy it into clipboard
 
-#### Local Run
+#### Local run
 
 a. Paste this single-line command in the local terminal, and it will perfectly run Parallel-Meta Suite pipeline without other operations.
 
-#### Local GUI View
+#### Local GUI view
 
 a. Enter output directory
 
@@ -150,7 +150,7 @@ Tips:
 
 ## Local GUI-based configuration and remote run in a server (Fig. 1 B)
 
-#### Local GUI Configure (for servers)
+#### Local GUI configure (for servers)
 
 Usually, servers need remote login (e.g. via SSH) and only provide command-based terminal.  in the local computer to generate the command.
 
@@ -158,10 +158,10 @@ a. Download GUI configuration guide folder ($ParallelMETA/PMS-Config/) from the 
 
 b. Generate the command in the local computer as well as [local GUI Configuration](#local-gui-configuration)
 
-#### Remote Run
+#### Remote run
 a. Paste and run the command in the terminal of remote server.
 
-#### Local GUI View (for servers)
+#### Local GUI view (for servers)
 The results can also be transfer to the local computer for browsing as well as [Local GUI View](#local-gui-view).
 
 ## Command-based configuration and run (Fig. 1 C)
@@ -311,7 +311,7 @@ Any problem please contact Parallel-Meta Suite development team
 [Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14,000 microbiome samples from American Gut Project. [10] (size ≈ 9GB)
 
 
-### Data Source
+### Data source
 1. Lax, S., et al., Bacterial colonization and succession in a newly opened hospital. Sci Transl Med, 2017. 9(391).
 2. Wu, G.D., et al., Linking Long-Term Dietary Patterns with Gut Microbial Enterotypes. Science, 2011. 334(6052).
 3. A, D.L., et al., Host lifestyle affects human microbiota on daily timescales. Genome biology, 2014. 15(7).
