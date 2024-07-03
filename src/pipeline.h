@@ -1,10 +1,6 @@
-// Updated at April 2, 2024
-// Updated by Haobo Shi
-// version 3.7 - 3.7.2 
-// Update profiler,remove pair-end mode
-
-// Updated at July 31, 2021
-// Updated by Yuzhu Chen
+// Updated at July 2, 2024
+// Updated by Haobo Shi and Xiaoquan Su
+// version 3.7 - 3.7.2
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 
 #include <iostream>
@@ -343,7 +339,7 @@ int Parse_FLevel(string levels){
     return count;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
 
     Bin_path = "";
     R_path = Check_Env() + "/Rscript";
@@ -494,13 +490,14 @@ int Parse_Para(int argc, char * argv[]){
     Error_file = Out_path + "/error.log";
     tmpError_file= Temp_dir + "/tmperror.log";
     remove(Error_file.c_str());
-    
+        
     int Max_Core_number = sysconf(_SC_NPROCESSORS_CONF);
     
     if ((Coren <= 0) || (Coren > Max_Core_number)){
                     //cerr << "Core number must be larger than 0, change to automatic mode" << endl;
                     Coren = Max_Core_number;
                     }
+    
     if (Rare_depth <= 0) Is_rare = false;
     
     if (Bootstrap <= 0){
@@ -511,6 +508,7 @@ int Parse_Para(int argc, char * argv[]){
         cerr << "Warning: The maximum bootstrap is " << MAX_BOOT << ", change to default " << DEF_BOOT << endl;
         Bootstrap = DEF_BOOT;
         }
+    
     if (!Database.Get_Is_Func()) Is_func = false;
     if (!Database.Get_Is_Cp()) Is_cp = 'F';
     if (!Database.Get_Is_Tree()){ 

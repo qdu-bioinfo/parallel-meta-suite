@@ -1,4 +1,5 @@
 # Parallel-Meta Suite release note
+# Version 3.7.3
 
 # I. Function update
 
@@ -7,4 +8,5 @@
 
 # II. Others
 
-* We strongly recommend all users to update to Parallel-Meta Suite 3.7.2
+*Updated the support to M2/M3 of MacOS.
+*Fixed some bugs.

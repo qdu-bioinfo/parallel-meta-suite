@@ -1,7 +1,7 @@
 // class_func_contribution
-// Updated at Sep 20, 2018
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
-// Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
+// Bioinformatics Group, Qingdao University
 
 #include <iostream>
 #include <fstream>
@@ -58,7 +58,7 @@ int printhelp(){
     return 0;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     if (argc ==1) 
 		printhelp();
@@ -130,9 +130,7 @@ int Parse_Para(int argc, char * argv[]){
         //cerr << "Core number must be larger than 0, change to automatic mode" << endl;
         Coren = max_core_number;
     }
-    
-    return 0;
-    }
+}
 
 int main(int argc, char * argv[]){
     

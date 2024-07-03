@@ -1,6 +1,4 @@
-// Updated at July 31, 2021
-// Updated by Yuzhu Chen
-// Updated at Dec 23, 2019
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 
@@ -62,7 +60,7 @@ int printhelp(){
     return 0;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     if (argc ==1)
 	printhelp();
@@ -140,9 +138,7 @@ int Parse_Para(int argc, char * argv[]){
         //cerr << "Core number must be larger than 0, change to automatic mode" << endl;
         Coren = max_core_number;
     }
-    
-    return 0;
-    }
+}
 
 int main(int argc, char * argv[]){
     
