@@ -1,6 +1,6 @@
-// Updated at Sep 4, 2018
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
-// Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
+// Bioinformatics Group, Qingdao University
 
 #include <iostream>
 #include <fstream>
@@ -63,7 +63,7 @@ int printhelp(){
     return 0;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     if (argc ==1) 
 		printhelp();
@@ -125,7 +125,6 @@ int Parse_Para(int argc, char * argv[]){
                Level = 2;
                }
     Out_file = Out_file + "." + Func_level[Level - 1];
-    return 0;
     }
 
 int main(int argc, char * argv[]){

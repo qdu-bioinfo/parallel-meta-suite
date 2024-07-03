@@ -1,4 +1,4 @@
-// Updated at Sep 4, 2018
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
 // Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
 // _Table_Format supported
@@ -64,7 +64,7 @@ int printhelp(){
     return 0;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
 
     if (argc ==1) 
 		printhelp();
@@ -140,8 +140,6 @@ int Parse_Para(int argc, char * argv[]){
     if (Depth <=0) Depth = 7;
     
     Check_Path(Out_path.c_str(), 1);
-
-    return 0;
     }
 
 int Copy_JS(const char * path){

@@ -86,7 +86,7 @@ int Print_Help(){
     cout << "\t-D (upper) ref database, " << _PMDB::Get_Args() << endl;
     
     cout << "\t[Input options, required]" << endl;
-    cout << "\t  -m Input single sequence file (Shotgun) [Conflicts with -r and -R]" << endl;
+    cout << "\t  -m Input single sequence file (Shotgun) [Conflicts with -r]" << endl;
     cout << "\t  or" << endl;
 	cout << "\t  -r Input single sequence file (rRNA targeted) [Conflicts with -m]" << endl;
 	//cout << "\t  -R (upper) Input paired sequence file [Optional for -r, Conflicts with -m]" << endl;

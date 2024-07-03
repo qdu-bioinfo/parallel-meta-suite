@@ -1,8 +1,4 @@
-// Updated at July 31, 2021
-// Updated by Yuzhu Chen
-// Update time: Nov 6, 2020
-// Updated by Yuzhu Chen
-// Updated at Dec 23, 2019
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 // version 3.1 or above with _Table_Format
@@ -83,7 +79,7 @@ int printhelp(){
     
     };
     
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     Ref_db = 'G';
     
