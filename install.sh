@@ -1,10 +1,10 @@
 ###Parallel-META installer
-###Updated at July 31, 2021
-###Updated by Shihao Bo at April 3, 2024. Added compilation related to PM-profiler
+###Updated by Xiaoquan Su at July 3, 2024. Added compilation related to PM-profiler
 ###Bioinformatics Group, College of Computer Science and Technology, Qingdao University
 ###Code by: Yuzhu Chen, Xiaoquan Su, Honglei Wang, Gongchao Jing
 #!/bin/bash
 ##Users can change the default environment variables configuration file here
+Ver="3.7.3"
 if [[ $SHELL = '/bin/zsh' ]];
 then
         PATH_File=~/.zshrc
@@ -36,7 +36,7 @@ Check_old_path=`grep "ParallelMETA/bin"  $PATH_File |sed 's/\(.\).*/\1/' |awk '{
 Check_old_Rscript_path=`grep "ParallelMETA/Rscript"  $PATH_File |sed 's/\(.\).*/\1/' |awk '{if($1!="#"){print "Ture";}}'`
 Add_Part="####DisabledbyParallelMetaSuite####"
 echo "**Parallel-Meta Suite Installation**"
-echo "**version 3.7.2**"
+echo "**version " $Ver "**"
 
 ###Build source code for src package###
 if [ -f "Makefile" ]

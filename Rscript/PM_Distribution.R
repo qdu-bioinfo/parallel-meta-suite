@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Abundance distribution analysis
+# Function:  Abundance distribution analysis
 # Call: Rscript PM_Distribution.R -i abund_file -o outfile
 # R packages used: optparse, reshape2, ggplot2,RColorBrewer, grDevices
 # Authors: Yuzhu Chen, Zheng Sun, Xiaoquan Su, Honglei Wang 

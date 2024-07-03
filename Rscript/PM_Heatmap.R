@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Heatmap
+# Function:  Heatmap
 # Call: Rscript PM_heatmap.R -d dist_file [-o outfile]
 # R packages used: optparse gplots
 # Authors: Yuzhu Chen, Yanhai Gong, Xiaoquan Su

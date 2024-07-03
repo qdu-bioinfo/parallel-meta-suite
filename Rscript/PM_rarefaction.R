@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Rarefaction curve
+# Function:  Rarefaction curve
 # Call: Rscript Rarefaction.R -i count_table -o outfile
 # R packages used: optparse
 # Last update: 2015-09-18, Zheng Sun, Xiaoquan Su

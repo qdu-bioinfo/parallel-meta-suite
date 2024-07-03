@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Hcluster
+# Function:  Hcluster
 # Call: Rscript PM_hcluster.R -d dist_file [-o outfile -k groupNum]
 # R packages used: optparse
 # Authors: Yuzhu Chen, Yanhai Gong, Xiaoquan Su

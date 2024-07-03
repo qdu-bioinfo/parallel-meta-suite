@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function:  Multivariate statistical analysis based on sequence count or sequence abd
+# Function:   Multivariate statistical analysis based on sequence count or sequence abd
 # Call: Rscript PM_ADiversity.R -i taxa.abd -m metadata -o outfile
 # R packages used: optparse,vegan fossil abind
 # Authors: Yuzhu Chen, Zheng Sun, Xiaoquan Su

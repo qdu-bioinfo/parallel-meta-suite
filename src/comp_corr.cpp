@@ -1,4 +1,4 @@
-// Updated at Sept 8, 2017
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 // version 3.1 or above with _Table_Format

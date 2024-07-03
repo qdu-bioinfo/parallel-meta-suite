@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: PCA
+# Function:  PCA
 # Call: Rscript PM_pca.R -m meta_data -i abund_file [-l T/F -o outfile -a axesfile]
 # R packages used: optparse vegan ggplot2 grid
 # update 2: 2020-10-18, 

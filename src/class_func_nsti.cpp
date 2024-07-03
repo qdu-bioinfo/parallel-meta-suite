@@ -1,5 +1,5 @@
-// Updated at July 31, 2021
-// Updated by Yuzhu Chen
+// Updated at July 2, 2024
+// Updated by Xiaoquan Su
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 // version 3.1 or above with _Table_Format
 // otu_parser
@@ -66,7 +66,7 @@ int printhelp(){
     return 0;
     }
 
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     Listprefix = "";
     
@@ -136,7 +136,6 @@ int Parse_Para(int argc, char * argv[]){
                     //cerr << "Core number must be larger than 0, change to automatic mode" << endl;
                     Coren = max_core_number;
                     }     
-    return 0;
     }
 
 int Load_Nsti(const char * nsti_table_name, hash_map <string, double, std_string_hash> & nsti_table){

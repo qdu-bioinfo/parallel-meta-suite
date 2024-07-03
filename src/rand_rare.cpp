@@ -1,6 +1,6 @@
-// Updated at Dec 23, 2019
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su
-// Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
+// Bioinformatics Group, Qingdao University
 // _OTU_Parser
 // _Table_Format
 
@@ -79,7 +79,7 @@ int printhelp(){
     
     };
     
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     int i = 1;
       
@@ -145,7 +145,6 @@ int Parse_Para(int argc, char * argv[]){
        if (Mode == 1) //list
        		Load_List(Listfile.c_str(), Infilename, Sam_name, Listprefix);
        }
-    return 0;
     }
 
 /*

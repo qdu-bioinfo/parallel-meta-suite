@@ -1,20 +1,11 @@
 CC:=g++
 ifneq (,$(findstring Darwin,$(shell uname)))
-	exist = $(shell if [ -e '/usr/local/bin/g++-10' ]; then echo "exist"; else echo "notexist"; fi;)
-	ifeq ($(exist),exist)
-		CC:=g++-10
-	else
-        	exist = $(shell if [ -e '/usr/local/bin/g++-9' ]; then echo "exist"; else echo "notexist"; fi;)
-        	ifeq ($(exist),exist)
-                	CC:=g++-9
-		else
-			CC:=g++-8
-		endif
-	endif
+    CC := $(shell brew list --versions gcc | awk '{print $$2}' | cut -d'.' -f1 | awk '{print "g++-"$$1; exit}')
 endif
+
 OMPFLG=-fopenmp
 HASHFLG=-Wno-deprecated
-BUILDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -msse
+BUILDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched
 OBJ_EXT=src/ExtractRNA.o
 EXE_TAX=bin/PM-parallel-meta
 EXE_RNA=bin/PM-extract-rna

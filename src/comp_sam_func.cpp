@@ -1,4 +1,4 @@
-// Updated at July 31, 2021
+// Updated at July 2, 2024
 // Updated by Xiaoquan Su, Yuzhu Chen
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 
@@ -72,7 +72,7 @@ int printhelp(){
     
     };
     
-int Parse_Para(int argc, char * argv[]){
+void Parse_Para(int argc, char * argv[]){
     
     Ref_db = 'G';
     
