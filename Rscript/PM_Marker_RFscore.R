@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Random Forest analysis based on sequence count or sequence abd
+# Function:  Random Forest analysis based on sequence count or sequence abd
 # Call: Rscript PM_Marker_RFscore.R -i taxa.abd -m metadata -o outfile
 # R packages used: randomForest ggplot2
 # Authors: Yuzhu Chen, Zheng Sun, Xiaoquan Su

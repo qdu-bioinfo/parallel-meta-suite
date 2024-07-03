@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: PCoA
+# Function:  PCoA
 # Call: Rscript PM_pcoa.R -m meta_data -d dist_file [-l T/F -o outfile -a axesfile]
 # R packages used: optparse vegan ggplot2 grid
 # Authors: Yuzhu Chen, Yufeng Zhang, Zheng Sun, Yanhai Gong,Wang Honglei, Yanhai Gong, Xiaoquan Su

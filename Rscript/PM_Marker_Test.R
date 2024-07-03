@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Biomarker Test
+# Function:  Biomarker Test
 # Call: Rscript PM_Marker_Test -m map_file -i abund_file -o out_path -p prefix
 # R packages used: optparse
 # Authors: Yuzhu Chen, Shi Huang, Xiaoquan Su, Gongchao Jing

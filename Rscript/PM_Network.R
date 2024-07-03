@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Co-occurence Network analysis
+# Function:  Co-occurence Network analysis
 # Call: Rscript PM_network.R -i dist_file -o outfile -t threshold
 # R packages used: optparse
 # Last update: 2016-09-29, Xiaoquan Su, Honglei Wang

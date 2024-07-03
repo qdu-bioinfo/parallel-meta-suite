@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Multivariate statistical analysis based on distance matrix
+# Function:  Multivariate statistical analysis based on distance matrix
 # Call: Rscript PM_Bdiversity.R -m map_file -d dist_file -o output
 # R packages used: reshape,ggplot2,pheatmap,pROC,combinat,plyr,vegan,optparse,parallel
 # Authors: Yuzhu Chen, Mingqian Zhang

@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #################################################################
-# Function: Correlation analysis between taxa and each of numerical metadata
+# Function:  Correlation analysis between taxa and each of numerical metadata
 # Call: Rscript PM_Marker_Corr.R -i abund_file -m mapfile(metadata) -o outfile
 # R packages used: psych and optparse
 # Authors: Yuzhu Chen, Shi Huang, Zheng Sun, Xiaoquan Su
