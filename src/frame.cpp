@@ -1,11 +1,8 @@
-// Updated at April 2, 2024
-// Updated by Haobo Shi
-// version 3.7 - 3.7.2 
+// Updated at Aug 16, 2024
+// Updated by Haobo Shi,Xiaoquan Su
+// version 3.7 - 3.7.2
 // Update profiler,remove pair-end mode
 
-// Updated at July 29, 2021
-// Updated by Yuzhu Chen
-// Code by Yuzhu Chen
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 
 #include <iostream>
@@ -72,8 +69,9 @@ void Single_Run(_Para para){
         }
 		//Extract 16S r RNA
         seq_count = ExtractRNA(para.Database.Get_Domain(), para.Infilename, para.Out_path, para.Length_filter, para.This_path, para.Core_number);
+        handlefile = Handle_seq(para.Align_exe_name.c_str(), para.Out_path + "/meta.rna", para.Out_path + "/tmp", para.Is_denoised, para.Is_nonchimeras, rna_count, asv_count, para.Format, para.Core_number);
 		//search database
-		rna_count = Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/taxonomy_annotation.txt" , para.Database.Get_Path()+ "/database.fa" , para.db_similarity,'F', para.Core_number, para.profiler);
+		Search_db(para.Align_exe_name.c_str(), handlefile, para.Out_path + "/tmp", para.Database.Get_Path()+ "/taxonomy_annotation.txt" , para.Database.Get_Path()+ "/database.fa" , para.db_similarity,'F', para.Core_number, para.profiler);
 	}
     /* //delete by Shi Haobo 
     else if(para.Is_paired){//if paired

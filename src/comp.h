@@ -1,11 +1,8 @@
-// Updated at April 2, 2024
-// Updated by Guosen Hou
-// version 3.7 - 3.7.2 
-// Change REG_SIZE to 120, To fit the Greengenes2 database of phylogenetic trees with more nodes
+// Updated at April 19, 2024
+// Updated by Xiaoquan Su, Guosen Hou
+// version 3.7 - 3.7.3 
+// Change REG_SIZE to 150, To fit the Refseq database of phylogenetic trees with more nodes
 
-// Updated at Dec 23, 2019
-// Updated by Xiaoquan Su
-// Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
 // version 3.1 or above with _Table_Format
 // version 3.4.1 or above with OTU_Parser
 // Added unweighted based on 3.4.1
@@ -28,7 +25,7 @@
 #ifndef COMP_H
 #define COMP_H
 
-#define REG_SIZE 120//updated by Guosen Hou
+#define REG_SIZE 150//updated by Guosen Hou
 
 #define MIN_DIST 0.00001
 
