@@ -187,7 +187,7 @@ or use the [GUI-based configuration](#gui-based-configuration-and-run-in-a-local
 
 Then you can check the results by the [visualized viewer index.html](#local-gui-view) in the output folder by a webpage browser. 
 
-We also provide a demo output for this example dataset. Click [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/data/) to download and check for details.
+We also provide a demo output for this example dataset. Click [here](http://bioinfo-ai.cn/test_dl/example.tar.gz) to download and check for details.
 
 # Tools in toolkit
 Tools can be directly used as Linux command line with parameters. To see all available parameters, please run the command with parameter ‘-h’, e.g.
