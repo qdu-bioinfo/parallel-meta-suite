@@ -50,7 +50,7 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 The latest released package(version 3.7.3):  
 
-For Linux/Win WSL, the source code package is [here](http://www.bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/parallel-meta-suite-3.7.3-src.tar.gz).     
+For Linux/Win WSL, the source code package is [here](http://www.bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/).     
 
 For MAC (Intel /M2/M3), the source code package is [here](http://www.bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/parallel-meta-suite-3.7.3-src-mac.tar.gz). 
 
