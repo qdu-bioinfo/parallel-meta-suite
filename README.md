@@ -11,8 +11,8 @@
 - [Example data in the package](#example-data-in-the-package)
 - [Tools in toolkit](#tools-in-toolkit)
 - [Results interpretation](#results-interpretation)
-- [Citation](#citation)
 - [Contact Us](#contact)
+- [Supplementary](#supplementary)
 
 # Introduction
 
@@ -50,9 +50,9 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 The latest released package(version 3.7.4):  
 
-For Linux/Win WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/parallel-meta-suite-3.7.4-src.tar.gz).     
+For Linux/Win WSL, the source code package is [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.4/win_linux/parallel-meta-suite-3.7.4-src.tar.gz).     
 
-For MAC (Intel /M2/M3), the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/parallel-meta-suite-3.7.4-src-mac.tar.gz). 
+For MAC (Intel /M2/M3), the source code package is [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.4/mac/parallel-meta-suite-3.7.4-src-mac.tar.gz). 
 
 
 ## Automatic installation (recommended)
@@ -187,7 +187,7 @@ or use the [GUI-based configuration](#gui-based-configuration-and-run-in-a-local
 
 Then you can check the results by the [visualized viewer index.html](#local-gui-view) in the output folder by a webpage browser. 
 
-We also provide a demo output for this example dataset. Click [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/data/example.out.3.7.4.tar.gz) to download and check for details.
+We also provide a demo output for this example dataset. Click [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.4/data/example.tar.gz) to download and check for details.
 
 # Tools in toolkit
 Tools can be directly used as Linux command line with parameters. To see all available parameters, please run the command with parameter ‘-h’, e.g.
