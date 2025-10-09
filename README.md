@@ -11,8 +11,8 @@
 - [Example data in the package](#example-data-in-the-package)
 - [Tools in toolkit](#tools-in-toolkit)
 - [Results interpretation](#results-interpretation)
+- [Citation](#citation)
 - [Contact Us](#contact)
-- [Supplementary](#supplementary)
 
 # Introduction
 
