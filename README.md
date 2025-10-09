@@ -1,4 +1,4 @@
-# Parallel-Meta suite users’ manual
+# Parallel-Meta Suite users’ manual
 
 ![Version](https://img.shields.io/badge/Version-3.7.4-brightgreen)
 ![Release date](https://img.shields.io/badge/Release%20date-Oct.%209%2C%202025-brightgreen)
