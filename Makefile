@@ -27,13 +27,13 @@ EXE_UTX=bin/PM-update-taxa
 
 tax:$(OBJ_TAX) src/frame.cpp
 	$(CC) -c -o $(OBJ_EXT) src/ExtractRNA.cpp $(HASHFLG)
-	$(CC) -o $(EXE_TAX) src/frame.cpp $(OBJ_MAP) $(OBJ_EXT) $(OMPFLG) $(HASHFLG)
+	$(CC) -std=c++11 -o $(EXE_TAX) src/frame.cpp $(OBJ_MAP) $(OBJ_EXT) $(OMPFLG) $(HASHFLG)
 	$(CC) -o $(EXE_RNA) src/ExtractRNA_plus.cpp $(OBJ_EXT) $(HASHFLG)	
 	$(CC) -o $(EXE_CLT) src/class_tax.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CLF) src/class_func.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CFN) src/class_func_nsti.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CFC) src/class_func_contribute.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
-	$(CC) -o $(EXE_TAL) src/taxa_sel.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
+	$(CC) -std=c++11 -o $(EXE_TAL) src/taxa_sel.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_FUL) src/func_sel.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CMP) src/comp_sam.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
 	$(CC) -o $(EXE_CMF) src/comp_sam_func.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)

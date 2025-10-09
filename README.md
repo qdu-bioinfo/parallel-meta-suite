@@ -1,7 +1,7 @@
 # Parallel-Meta suite users’ manual
 
-![Version](https://img.shields.io/badge/Version-3.7.3-brightgreen)
-![Release date](https://img.shields.io/badge/Release%20date-Jul.%204%2C%202024-brightgreen)
+![Version](https://img.shields.io/badge/Version-3.7.4-brightgreen)
+![Release date](https://img.shields.io/badge/Release%20date-Oct.%209%2C%202025-brightgreen)
 
 ## Contents
 - [Introduction](#introduction)
@@ -11,8 +11,8 @@
 - [Example data in the package](#example-data-in-the-package)
 - [Tools in toolkit](#tools-in-toolkit)
 - [Results interpretation](#results-interpretation)
+- [Citation](#citation)
 - [Contact Us](#contact)
-- [Supplementary](#supplementary)
 
 # Introduction
 
@@ -27,7 +27,7 @@ PMS only requires a standard computer with sufficient RAM to support the operati
 	
 	RAM: 8+ GB
 	CPU: 4+ cores, 3.3+ GHz/core
-    
+
 ## Software requirements
 
 ### OpenMP
@@ -35,7 +35,7 @@ PMS only requires a standard computer with sufficient RAM to support the operati
 OpenMP library is the C/C++ parallel computing library. Most Linux releases have OpenMP already been installed in the system. In Mac OS X, to install the compiler that supports OpenMP, we recommend using the Homebrew package manager:
 
 	brew install gcc
-	
+
 ### Rscript environment
 For statistical analysis and pdf format output, PMS requires cran-R (http://cran.r-project.org/) 3.2 or higher for the execution of “.R” scripts. Then all packages could be automatically installed and updated by the PMS installer.
 ### Vsearch (included in the package)
@@ -48,11 +48,11 @@ HMMER3 has been integrated in the package. If you want to install/update manuall
 
 **Due to size limitations of GitHub repositories, this repository does not include the reference database. Please use the following link to download PMS instead of directly cloning the repository.**
 
-The latest released package(version 3.7.3):  
+The latest released package(version 3.7.4):  
 
-For Linux/Win WSL, the source code package is [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/win_linux/).     
+For Linux/Win WSL, the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/parallel-meta-suite-3.7.4-src.tar.gz).     
 
-For MAC (Intel /M2/M3), the source code package is [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/mac/). 
+For MAC (Intel /M2/M3), the source code package is [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/parallel-meta-suite-3.7.4-src-mac.tar.gz). 
 
 
 ## Automatic installation (recommended)
@@ -88,7 +88,7 @@ b. Configure the environment variables (default environment variable configurati
 	export ParallelMETA=Path to Parallel-Meta
 	export PATH="$PATH:$ParallelMETA/bin"
 	export PATH="$PATH:$ParallelMETA/Rscript"
-    
+
 c. Then, active the environment variables
 
 	source ~/.bashrc
@@ -187,13 +187,13 @@ or use the [GUI-based configuration](#gui-based-configuration-and-run-in-a-local
 
 Then you can check the results by the [visualized viewer index.html](#local-gui-view) in the output folder by a webpage browser. 
 
-We also provide a demo output for this example dataset. Click [here](http://bioinfo-ai.cn/downloads/Released_Software/parallel-meta/3.7.3/data/) to download and check for details.
+We also provide a demo output for this example dataset. Click [here](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7.4/data/example.out.3.7.4.tar.gz) to download and check for details.
 
 # Tools in toolkit
 Tools can be directly used as Linux command line with parameters. To see all available parameters, please run the command with parameter ‘-h’, e.g.
 
 	PM-pipeline –h
-	
+
 
 ### C++ based implementations
 | Command name  |  Purpose |
@@ -297,28 +297,12 @@ b. scripts.sh: The detailed scripts of each analysis step.
 
 c. error.log: The warning and error messages.
 
+# Citation
+
+Y Chen, J Li, Y Zhang, M Zhang, Z Sun, G Jing, S Huang, X Su. Parallel‐Meta Suite: Interactive and rapid microbiome data analysis on multiple platforms. IMeta, 2022, 1(1): e1 https://doi.org/10.1002/imt2.1
+
 # Contact
 
 Any problem please contact Parallel-Meta Suite development team
 
 	Su Xiaoquan	E-mail: suxq@qdu.edu.cn
-	
-# Supplementary
-[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset1.tar.gz) contains 894 microbiome samples from a hospital's indoor environment before and after opening. [1]  (size ≈ 1GB) 
-
-[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 2,556 microbiomes sampled from multiple environmental conditions and studies. [2-9] (size ≈ 5GB)
-
-[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/parallel-meta/3.7/data/dataset2.tar.gz) contains 14,000 microbiome samples from American Gut Project. [10] (size ≈ 9GB)
-
-
-### Data source
-1. Lax, S., et al., Bacterial colonization and succession in a newly opened hospital. Sci Transl Med, 2017. 9(391).
-2. Wu, G.D., et al., Linking Long-Term Dietary Patterns with Gut Microbial Enterotypes. Science, 2011. 334(6052).
-3. A, D.L., et al., Host lifestyle affects human microbiota on daily timescales. Genome biology, 2014. 15(7).
-4. Koenig, J.E., et al., Succession of microbial consortia in the developing infant gut microbiome. Proceedings of the National Academy of Sciences of the United States of America, 2011. 108.
-5. Muegge, B.D., et al., Diet Drives Convergence in Gut Microbiome Functions Across Mammalian Phylogeny and Within Humans. Science, 2011. 332(6032).
-6. Peiffer, J.A., et al., Diversity and heritability of the maize rhizosphere microbiome under field conditions. Proceedings of the National Academy of Sciences of the United States of America, 2013. 110(16).
-7. Bulgarelli, D., et al., Structure and Function of the Bacterial Root Microbiota in Wild and Domesticated Barley. Cell Host & Microbe, 2015. 17(3).
-8. K, G.J., et al., Human genetics shape the gut microbiome. Cell, 2014. 159(4).
-9. Iratxe, Z., et al., The Soil Microbiome Influences Grapevine-Associated Microbiota. mBio, 2015. 6(2).
-10. Daniel, M., et al., American Gut: an Open Platform for Citizen Science Microbiome Research. mSystems, 2018. 3(3).

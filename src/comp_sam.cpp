@@ -1,3 +1,8 @@
+// Updated at April 27, 2025
+// Updated by Yongxiang Huang, Minan Wang
+// Bioinformatics Group, College of Computer Science & Technology, Qingdao University
+// Added log transform option on 3.7.4
+
 // Updated at July 2, 2024
 // Updated by Xiaoquan Su
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
@@ -32,6 +37,7 @@ string Outfilename;
 int Coren = 0;
 
 bool Is_cp_correct; //
+bool Is_log_norm;
 bool Is_sim; //true: sim, false: dist;
 bool Is_heatmap;
 int Cluster = 2;
@@ -69,6 +75,7 @@ int printhelp(){
     //cout << "\t  -w weighted or unweighted, T(rue) or F(alse), default is T" << endl;
     cout << "\t  -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0" << endl;
     cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
+    cout << "\t  -g Abundance log-transformed, T(rue) or F(alse), default is F" << endl;
     cout << "\t  -c Cluster number, default is 2 [Optional for -P]" << endl;
     cout << "\t  -t Number of thread, default is auto" << endl;
     cout << "\t  -h Help" << endl;
@@ -87,6 +94,7 @@ void Parse_Para(int argc, char * argv[]){
     Mode = 0; //default is single;
     
     Is_cp_correct = true;
+    Is_log_norm = false;
     Is_sim = false;
     Is_heatmap = false;
     //Is_weight = true;
@@ -119,6 +127,7 @@ void Parse_Para(int argc, char * argv[]){
                             case 'M': Dist_metric = atoi(argv[i+1]); break; 
                             case 'r': if ((argv[i+1][0] == 'f') || (argv[i+1][0] == 'F')) Is_cp_correct = false; break;
                             case 'd': if ((argv[i+1][0] == 'f') || (argv[i+1][0] == 'F')) Is_sim = true; break;
+                            case 'g': if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T')) Is_log_norm = true; break;
                             case 'P': if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T')) Is_heatmap = true; break;
                             case 'c': Cluster = atoi(argv[i+1]); break;
                             
@@ -263,12 +272,12 @@ void Multi_Comp_Table(_Table_Format abd_table){
     _Comp_Tree comp_tree(Ref_db);
     
     int file_count = abd_table.Get_Sample_Size();
-         
+
     //load abd
     float **Abd = new float * [file_count];
     for (int i = 0; i < file_count; i ++){
         Abd[i] = new float [comp_tree.Get_LeafN()];
-        cout << comp_tree.Load_abd(&abd_table, Abd[i], i, Is_cp_correct) << " OTUs in file " << i + 1 << endl;
+        cout << comp_tree.Load_abd(&abd_table, Abd[i], i, Is_cp_correct, Is_log_norm) << " OTUs in file " << i + 1 << endl;
         }
     
     cout << file_count << " files loaded" << endl;

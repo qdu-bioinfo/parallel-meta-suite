@@ -1,3 +1,7 @@
+// Updated at April 27, 2025
+// Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
+// Added log transform function on 3.7.4
+
 // Updated at Dec 20, 2016
 // Bioinformatics Group, Single-Cell Research Center, QIBEBT, CAS
 // version 3.1 or above with _Table_Format
@@ -98,6 +102,16 @@ class _Table_Format_Seq{
              Abd_table.Abd.push_back(abd);             
              }
          }
+
+    void Log_Transform() {
+        for (auto& sample : Abd_count) {
+            for (auto& val : sample) {
+                if (val <= 0) val = 0;
+                else val = log(val + 1);
+            }
+        }
+    }
+
          
     unsigned int Output_Abd(const char * outfilename){
          

@@ -1,9 +1,15 @@
+// Updated at April 27, 2025
+// Updated by Yongxiang Huang, Minan Wang
+// version 3.7.3 - 3.7.4
+// Bioinformatics Group, College of Computer Science & Technology, Qingdao University
+// Add log transform option on 3.7.4
+
 // Updated at July 29, 2021
 // Updated by Yuzhu Chen
 // Bioinformatics Group, College of Computer Science & Technology, Qingdao University
 //  version 3.1 or above with _Table_Format
 // _Table_Format input support
-// _OTU_Parser 
+// _OTU_Parser
 
 #include <iostream>
 #include <fstream>
@@ -41,6 +47,7 @@ float Ave_t = 0.001;
 int Min_seq = 2;
 
 bool Is_cp_correct = true;
+bool Is_log_norm = false;
 bool Is_print = false;
 
 _PMDB Database;
@@ -74,6 +81,7 @@ void Print_Help(){
     
     cout << "\t[Other options]" << endl;
     cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
+    cout << "\t  -g Abundance log-transformed, T(rue) or F(alse), default is F" << endl;
     cout << "\t  -q Minimum sequence count threshold, default is 2" << endl;
     cout << "\t  -m Maximum abundance threshold, default is 0.001 (0.1%)" << endl;
     cout << "\t  -n Minimum abundance threshold, default is 0.0 (0%)" << endl;
@@ -147,9 +155,10 @@ void Parse_Para(int argc, char * argv[]){
                                       
                             case 'o': Outfilename = argv[i+1]; break;
                             case 'L': Level = Get_TLevel(argv[i+1]); break;
-                            case 'r': if ((argv[i+1][0] == 'f') || (argv[i+1][0] == 'F')) Is_cp_correct = false; break;   
-                            case 'P': if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T')) Is_print = true; break;   
-                            case 'q': Min_seq = atoi(argv[i+1]); break;   
+                            case 'r': if ((argv[i+1][0] == 'f') || (argv[i+1][0] == 'F')) Is_cp_correct = false; break;
+                            case 'g': if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T')) Is_log_norm = true; break;
+                            case 'P': if ((argv[i+1][0] == 't') || (argv[i+1][0] == 'T')) Is_print = true; break;
+                            case 'q': Min_seq = atoi(argv[i+1]); break;
                             case 'm': Max_abd = atof(argv[i+1]); break;
                             case 'n': Min_abd = atof(argv[i+1]); break;
                             case 'z': No_zero_rate = atof(argv[i+1]); break;
@@ -322,7 +331,13 @@ int main(int argc, char * argv[]){
         }
     
     Taxa_table.Filter_Seq_Count(Min_seq);
-    
+    // 先进行log变换
+    if(Is_log_norm){
+        cout<< "Applying log transformation to abundance data..." <<endl;
+//        Taxa_table.Log_function();
+        Taxa_table.Log_Transform();
+    }
+
     Taxa_table.Normalization();
     
     Taxa_table.Filter_Abd(Max_abd, Min_abd, No_zero_rate, Ave_t);
@@ -331,7 +346,13 @@ int main(int argc, char * argv[]){
     //output abd
     string abd_file = Outfilename + "." + Taxa_level[Level-1] + ".Abd";
     string count_file = Outfilename + "." + Taxa_level[Level-1] + ".Count";
-    cout << "Total Output Taxa Numer is " << Taxa_table.Output_Abd(abd_file.c_str()) << endl;
+    if(Is_log_norm){
+        cout << "Total Log-transformed Output Taxa Numer is " << Taxa_table.Output_Abd(abd_file.c_str()) << endl;
+    }
+    else{
+        cout << "Total Output Taxa Numer is " << Taxa_table.Output_Abd(abd_file.c_str()) << endl;
+    }
+
     Taxa_table.Output_Count(count_file.c_str());
     
     if (Is_print){

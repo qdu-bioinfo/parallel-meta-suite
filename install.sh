@@ -1,10 +1,11 @@
 ###Parallel-META installer
+###Updated by Yu Zhang, Jiaming Yu, Yongxiang Huang, Minan Wang at July 6, 2025. This update resolves the issue of redundant database creation when running PM-profiler, adds a log-transform option, includes a new version of the RDP database, and enhances PM-parallel-meta to support list-based input.
 ###Updated by Xiaoquan Su at July 3, 2024. Added compilation related to PM-profiler
 ###Bioinformatics Group, College of Computer Science and Technology, Qingdao University
 ###Code by: Yuzhu Chen, Xiaoquan Su, Honglei Wang, Gongchao Jing
 #!/bin/bash
 ##Users can change the default environment variables configuration file here
-Ver="3.7.3"
+Ver="3.7.4"
 if [[ $SHELL = '/bin/zsh' ]];
 then
         PATH_File=~/.zshrc
@@ -82,13 +83,13 @@ elif [ "$Check_old_pm" = "" ]
     then
       echo "export ParallelMETA="${PM_PATH} >> $PATH_File
 fi
-if [ "$Check_old_path" = "" ]
-    then
-      echo "export PATH=\$PATH:\$ParallelMETA/bin" >> $PATH_File
-fi
 if [ "$Check_old_Rscript_path" = "" ]
     then
-	  echo "export PATH=\$PATH:\$ParallelMETA/Rscript" >> $PATH_File
+      echo "export PATH=\$ParallelMETA/Rscript:\$PATH" >> $PATH_File
+fi
+if [ "$Check_old_path" = "" ]
+    then
+      echo "export PATH=\$ParallelMETA/bin:\$PATH" >> $PATH_File
 fi
 ###Source the environment variable file###
 source $PATH_File

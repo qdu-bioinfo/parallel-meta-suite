@@ -4,7 +4,7 @@ ifneq (,$(findstring Darwin,$(shell uname)))
 endif
 
 OMPFLG=-fopenmp
-BLDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -std=c++11 -g -O3
+BLDFLG=-w -ffunction-sections -fdata-sections -fmodulo-sched -std=c++11 -O3
 EXE=../bin/PM-profiler
 
 all:
