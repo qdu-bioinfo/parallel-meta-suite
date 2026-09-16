@@ -121,11 +121,11 @@ PMS provides a pipeline to automatically process the whole workflow.
 
 Local GUI-based usage is applicable with operating systems of Linux (GUI desktop installed), MAC OS, or Windows 10 (Subsystem for Linux (WSL) installed)
 
-a. Open the **"index.html"** page in the GUI configuration folder ($ParallelMETA/PMS-Config/index.html) by a web browser. 
+a. Open the **"index.html"** page in the GUI configuration folder ($ParallelMETA/PMS-config/index.html) by a web browser.
 
 Tip: You can also copy this folder to any other directory, e.g.
 
-	cp -rf $ParallelMETA/PMS-Config ./
+	cp -rf $ParallelMETA/PMS-config ./
 
 
 b. Adjust parameters or keep the default options (according to actual requirements)
@@ -154,7 +154,7 @@ Tips:
 
 Usually, servers need remote login (e.g. via SSH) and only provide command-based terminal.  in the local computer to generate the command.
 
-a. Download GUI configuration guide folder ($ParallelMETA/PMS-Config/) from the remote server, and open **"index.html"** in the folder by a web browser
+a. Download GUI configuration guide folder ($ParallelMETA/PMS-config/) from the remote server, and open **"index.html"** in the folder by a web browser
 
 b. Generate the command in the local computer as well as [local GUI Configuration](#local-gui-configuration)
 
