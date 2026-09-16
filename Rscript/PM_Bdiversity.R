@@ -64,7 +64,7 @@ t<-opts$threads
 
 # read tables
 dist_matrix <- read.table(dist_matrix_name,header=T,row.names=1)
-meta_data <- read.table(meta_name,header=T,sep="\t",row.names=1,as.is=FALSE)
+meta_data <- read.table(meta_name,header=T,sep="\t",row.names=1,stringsAsFactors = TRUE)
 
 #write anosim adonis process into xxx.Beta_diversity_log.txt
 con <- file(paste(opts$out_dir,'/',prefix,'.Beta_diversity_log.txt',sep=''))
@@ -104,12 +104,12 @@ for(group in all_group) {
 		print(ano)
 	}
 	#--------------------------------
-	ado<-adonis(dist_matrix~meta_data[,group],parallel=t)
-	stat_summ[group,2]<-ado.P<-ado$aov.tab$P[1]
-	stat_summ[group,1]<-ado.F<-ado$aov.tab$F.Model[1]
+	ado<-adonis2(dist_matrix~meta_data[,group],parallel=t)
+	stat_summ[group,2]<-ado.P<-ado$`Pr(>F)`[1]
+	stat_summ[group,1]<-ado.F<-ado$F[1]
 	cat("ADONIS/PERMANOVA (",group,"): \n")
 	cat("--------------------------------\n")
-	print(ado$aov.tab)
+	print(ado)
 	cat("--------------------------------\n\n")
 }
 #)
@@ -176,7 +176,16 @@ if(length(all_group_f)>=1){
 		sink(filepath);write.table(plot_value,quote=FALSE,sep='\t',row.names=FALSE);sink()
 		## Output distance boxplot
 		if(nlevels(group)<30){
-			plot<-qplot(x=GroupPair, y=Dist, data=plot_value, geom='boxplot',position='dodge',main='',xlab="Group pair",ylab=paste(dist_name,' Distance',sep=''),outlier.alpha=0) + coord_flip() +  theme_bw() + theme(axis.title.x=element_text(margin=margin(15,0,0,0)),axis.title.y=element_text(margin=margin(0,15,0,0)),plot.margin = unit(c(0.5,1.3,0.8,0.9),'lines'))
+			plot <- ggplot(plot_value, aes(x = GroupPair, y = Dist)) +
+			        geom_boxplot(position = "dodge", outlier.alpha = 0) +
+			        coord_flip() +
+			        labs(x = "Group pair", y = paste(dist_name, ' Distance', sep = '')) +
+			        theme_bw() +
+			        theme(
+			            axis.title.x = element_text(margin = margin(15, 0, 0, 0)),
+			            axis.title.y = element_text(margin = margin(0, 15, 0, 0)),
+			            plot.margin = unit(c(0.5, 1.3, 0.8, 0.9), 'lines')
+			        )
 			suppressMessages(ggsave(filename=paste(outpath2,dist_name,'.',group_name,'.boxplot.ggplot.pdf',sep=''),plot=plot,height=ifelse(nlevels(mt)>2,nlevels(mt),2))) 
 		}
 		rm(plot)
@@ -189,10 +198,20 @@ if(length(all_group_f)>=1){
 		rm(plot_value)
 		rm(b_plot_value)
 	}
-	p<-qplot(x=Grouping, y=Dist, data=bp_value, geom="boxplot", fill=DistType, position="dodge",main="", ylab=paste(dist_name," Distance",sep=""),outlier.alpha=0)+coord_flip()+ theme_bw() +theme(axis.title.x=element_text(margin=margin(15,0,0,0)),axis.title.y=element_text(margin=margin(0,15,0,0)),panel.grid.major=element_line(colour=NA),panel.grid.minor=element_line(colour=NA),plot.margin = unit(rep(0.6,4),'lines'))
+	p <- ggplot(bp_value, aes(x = Grouping, y = Dist, fill = DistType)) +
+	     geom_boxplot(position = "dodge", outlier.alpha = 0) +
+	     coord_flip() +
+	     labs(y = paste(dist_name, " Distance", sep = "")) +
+	     theme_bw() +
+	     theme(
+	         axis.title.x = element_text(margin = margin(15, 0, 0, 0)),
+	         axis.title.y = element_text(margin = margin(0, 15, 0, 0)),
+	         panel.grid.major = element_line(colour = NA),
+	         panel.grid.minor = element_line(colour = NA),
+	         plot.margin = unit(rep(0.6, 4), 'lines')
+	     )
 	suppressMessages(ggsave(filename=paste(outpath1,"/",prefix,".Beta_diversity_DistBoxplot.pdf",sep=""),plot=p, limitsize=TRUE, width=6, height=ifelse(length(all_group_f)>1,length(all_group_f)*1.4,2)))
 	rm(p)
-	rm(bp_value)
 }
 
 
@@ -222,6 +241,7 @@ if(length(all_group_n)>=1){
 		
 		rm(p)
 	}
+	rm(bp_value)
 }
 
 sink()
