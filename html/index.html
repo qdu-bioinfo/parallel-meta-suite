@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PMS-Viewer</title>
+    <link rel="icon" href="PageResources/images/favicon.ico">
+    <!--META-->
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="PageResources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="PageResources/css/icon-font.min.css">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="PageResources/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="PageResources/style.css">
+    <link rel="stylesheet" type="text/css" href="PageResources/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="PageResources/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="PageResources/css/animate.css">
+    <!--JS-->
+
+</head>
+
+<body>
+    <header style="
+    height: 94px;
+    border-bottom: 1px solid #dcdfe6;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(90deg, #ffffff, #6d9cd9 80%, #1f497d);
+  ">
+        <div class="container" style="    height: 94px;">
+            <div class="row" style="flex-direction: column;justify-content: center;">
+                <div class="col-lg-6">
+                    <div class="logo"><img src="PageResources/images/PM_logo.png"
+                            style="height: 50px; margin-top: 22px; margin-left: 30px" /></div>
+                </div>
+                <div class="col-lg-6">
+                    <h4 style="color: #ffffff; text-align: right; height: 94px;">
+                        Parallel-Meta Suite Results Viewer
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <section class="features section">
+        <div class="container">
+            <div class="features-inner section-inner has-bottom-divider">
+                <div class="pricing-header text-center">
+                    <h2 class="section-title mt-0">Analysis Results</h2>
+                    <p class="section-paragraph mb-0">Most results are listed here<br>
+                        Click "More results" for detailed information
+                    </p>
+                </div>
+                <div class="features-wrap">
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            1. Taxonomy profile
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Sample_Views/taxonomy.html" target="_blank">View samples</a>
+                                            </li>
+                                            <li><a href="Single_Sample" target="_blank">More results</a></li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            2. Relative Abundance
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Abundance_Tables/taxa.phylum.Abd.distribution.pdf"
+                                                    target="_blank">Taxonomy.Phylum</a></li>
+                                            <li><a href="Abundance_Tables/taxa.genus.Abd.distribution.pdf"
+                                                    target="_blank">Taxonomy.Genus</a></li>
+                                            <li><a href="Abundance_Tables/func.l2.Abd.distribution.pdf"
+                                                    target="_blank">Function.Pathway.level2</a></li>
+                                            <li><a href="Abundance_Tables/func.l3.Abd.distribution.pdf"
+                                                    target="_blank">Function.Pathway.level3</a></li>
+                                            <li><a href="Abundance_Tables" target="_blank">More results</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            3. Alpha diversity
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Alpha_Diversity/taxa.phylum.Alpha_diversity_Boxplot.pdf"
+                                                    target="_blank">Taxonomy.Phylum</a></li>
+                                            <li><a href="Alpha_Diversity/taxa.genus.Alpha_diversity_Boxplot.pdf"
+                                                    target="_blank">Taxonomy.Genus</a></li>
+                                            <li><a href="Alpha_Diversity/func.l2.Alpha_diversity_Boxplot.pdf"
+                                                    target="_blank">Function.Pathway.level2</a></li>
+                                            <li><a href="Alpha_Diversity/func.l3.Alpha_diversity_Boxplot.pdf"
+                                                    target="_blank">Function.Pathway.level3</a></li>
+                                            <li><a href="Alpha_Diversity" target="_blank">More results</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            4. Beta diversity
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Beta_Diversity/taxa.dist.Beta_diversity_DistBoxplot.pdf"
+                                                    target="_blank">Taxonomy.OTU.weighted</a></li>
+                                            <li><a href="Beta_Diversity/taxa.unweighted.dist.Beta_diversity_DistBoxplot.pdf"
+                                                    target="_blank">Taxonomy.OTU.un-weighted</a></li>
+                                            <li><a href="Beta_Diversity/func.dist.Beta_diversity_DistBoxplot.pdf"
+                                                    target="_blank">Function.KO.weighted</a></li>
+                                            <li><a href="Beta_Diversity" target="_blank">More results</a></li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            5. Distance matrix
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Distance_Matrix/taxa.dist.heatmap.pdf" target="_blank">
+                                                    Heatmap by Taxonomy.OTU.weighted</a></li>
+                                            <li><a style="text-align: left;"
+                                                    href="Distance_Matrix/taxa.unweighted.dist.heatmap.pdf"
+                                                    target="_blank">
+                                                    Heatmap by Taxonomy.OTU.un-weighted</a></li>
+                                            <li><a href="Distance_Matrix/func.dist.heatmap.pdf" target="_blank">
+                                                    Heatmap by Function.KO.weighted</a></li>
+                                            <li><a href="Distance_Matrix" target="_blank">More results</a></li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            6. Distribution
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Clustering/taxa.pcoa.pdf" target="_blank">
+                                                    PCoA by Taxonomy.OTU.weighted</a></li>
+                                            <li><a href="Clustering/taxa.unweighted.pcoa.pdf" target="_blank">PCoA by
+                                                    Taxonomy.OTU.un-weigthed</a></li>
+                                            <li><a href="Clustering/taxa.phylum.pca.pdf" target="_blank">PCA by
+                                                    Taxonomy.Phylum</a></li>
+                                            <li><a href="Clustering/taxa.genus.pca.pdf" target="_blank">PCA by
+                                                    Taxonomy.Genus</a></li>
+                                            <li><a href="Clustering/func.pcoa.pdf" target="_blank">PCoA by
+                                                    Function.KO.weighted</a></li>
+                                            <li><a href="Clustering/func.l2.pca.pdf" target="_blank">PCA by
+                                                    Function.Pathway.level2</a></li>
+                                            <li><a href="Clustering/func.l3.pca.pdf" target="_blank">PCA by
+                                                    Function.Pathway.level3</a></li>
+                                            <li><a href="Clustering" target="_blank">More results</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            7. Bio-markers
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Markers" target="_blank">More results</a></li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            8. Cooccurrence Network
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Network/taxa.phylum.self_matrix.out.network.pdf"
+                                                    target="_blank">Taxonomy.Phylum</a></li>
+                                            <li><a href="Network/taxa.genus.self_matrix.out.network.pdf"
+                                                    target="_blank">Taxonomy.Genus</a></li>
+                                            <li><a href="Network" target="_blank">More results</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features section">
+        <div class="container">
+            <div class="features-inner section-inner">
+                <div class="pricing-header text-center">
+                    <h2 class="section-title mt-0">Analysis Information </h2>
+                    <p class="section-paragraph mb-0">Check the following information for analysis parameters, errors
+                        and scripts
+
+                    </p>
+                </div>
+
+                <div class="features-wrap">
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            9. Analysis parameters
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="Analysis_Report.txt" target="_blank">Analysis_Report.txt</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            10. Error log
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="error.log" target="_blank">error.log</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="feature text-center is-revealing">
+                        <div class="feature-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">
+                                            11. Scripts
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li><a href="scripts.sh" target="_blank">scripts.sh</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="site-footer" style="background-image: linear-gradient(90deg, #ffffff, #6d9cd9 80%, #1f497d);">
+        <div class="container">
+            <div class="site-footer-inner">
+                <div class="brand footer-brand">
+
+                    <img class="header-logo-image" style="width: 68px; height: 32px;"
+                        src="./PageResources/images/PM_logo.png" />
+
+                </div>
+                <ul class="footer-links list-reset">
+
+                </ul>
+                <ul class=" footer-social-links list-reset">
+                    <li>
+                        <a href="https://github.com/qibebt-bioinfo/parallel-meta" target="_blank">
+                            <span class="screen-reader-text">Github</span>
+                            <i class="fa fa-github" style="color: white; font-size: 30px"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-copyright">
+                    Created by Bioinformatics Group, Qingdao University.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="PageResources/js/jquery-2.1.4.min.js"></script>
+    <script src="PageResources/js/jquery.counterup.min.js"></script>
+    <script src="PageResources/js/waypoints.min.js"></script>
+    <script src="PageResources/js/script.js"></script>
+
+</body>
+
+</html>
