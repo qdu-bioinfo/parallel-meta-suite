@@ -1,0 +1,21 @@
+#Here we provide a demo dataset with 20 human microbiome samples
+#
+#File description
+#seqs.list: Sequence file list for input.
+#meta.txt: Meta-data. 
+#
+#To run the demo, you can either 
+#
+#sh Readme
+#
+#or
+#type the following commands. 
+#
+#Commands:
+PM-pipeline -i seqs.list -m meta.txt -o out_dir
+#
+#Output description
+#All output results are contained in the output directory "out_dir".
+#Check the "out_dir/index.html" for overview of the results.
+#
+#This demo run should take about 1 hour on a recommended computer.
